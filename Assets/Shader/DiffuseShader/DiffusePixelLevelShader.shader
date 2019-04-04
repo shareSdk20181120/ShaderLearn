@@ -54,4 +54,5 @@ Shader "ShaderLearn/DiffusePixelLevelShader"
 			ENDCG
 		}
 	}
+		Fallback "Diffuse"
 }

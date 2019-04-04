@@ -60,8 +60,8 @@ Shader "ShaderLearn/DiffuseVertexLevelShader"
 			ENDCG
 		}
 
-		//Falllback "Diffuse"
+		
 	}
 
-		
+		Fallback "Diffuse"
 }
