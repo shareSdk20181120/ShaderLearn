@@ -4,7 +4,7 @@
 
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "LearnShader/Chapter5-SimpleShader"
+Shader "ShaderLearn/Chapter5-SimpleShader"
 {
 	Properties{
 		_Color("Color Tint",Color) = (1.0,1.0,1.0,1.0)//定义一个颜色拾取器
