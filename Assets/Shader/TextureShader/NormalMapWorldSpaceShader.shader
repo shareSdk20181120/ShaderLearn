@@ -68,7 +68,7 @@
 				float3 worldPos = float3(i.TtoW0.w,i.TtoW1.w,i.TtoW2.w);
 				fixed3 lightDir = normalize(UnityWorldSpaceLightDir(worldPos));
 				fixed3 viewDir = normalize(UnityWorldSpaceViewDir(worldPos));
-				fixed3 bump = UnpackNormal(tex2D(_BumpMap, i.uv.zw));//对法线采集和解码
+				fixed3 bump = UnpackNormal(tex2D(_BumpMap, i.uv.zw));//对法线采集和解码 这里的切线空间下的法线方向
 				bump.xy *= _BumpScale;
 				bump.z = sqrt(1 - saturate(dot(bump.xy, bump.xy)));
 				bump = normalize(half3(dot(i.TtoW0.xyz, bump), dot(i.TtoW1.xyz, bump), dot(i.TtoW2.xyz, bump)));
