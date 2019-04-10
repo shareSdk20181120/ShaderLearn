@@ -1,12 +1,4 @@
-﻿
-/*
-让其放到一个复杂的模型上，可以看到我们关闭了深度写入操作，会出现因为排序错误导致错误的透明效果，使用两个pass解决这个问题，
-第一pass，开启深度写入，不输出颜色，它的目的仅仅是把模型的深度值写入深度缓存中，
-第二个pass，进行正常的透明度混合，由于第一个pass已经得到逐像素的正确深度信息，该pass可以按照像素级别的深度排序结果进行透明渲染，
-这麽做的缺点：多一个pass会对性能造成一定的影响
-*/
-
-Shader "ShaderLearn/AlpahBlendShadeer"
+﻿Shader "ShaderLearn/AlpahBlendZWriteShader"
 {
 	Properties
 	{
@@ -16,12 +8,18 @@ Shader "ShaderLearn/AlpahBlendShadeer"
 	}
 	SubShader
 	{
-			//RenderType这个标签可以让unity把这个shader归入到提前定义好的数组（Transparent组）中，用来指明该shader是一个透明度混合的shader
+		//RenderType这个标签可以让unity把这个shader归入到提前定义好的数组（Transparent组）中，用来指明该shader是一个透明度混合的shader
 		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }//通常使用透明度混合的shader都应该包含这三个标签
+		Pass//这里加pass，为了把模型的深度信息写入缓冲中，从而踢出模型自身遮挡的片元
+		{
+
+			ZWrite On
+			ColorMask 0//ColorMask 用于设置颜色通道的写掩码。他的语义：ColorMask RGB | A | 0 |其他任何RGBA的组合。当ColorMask设置为0时，意味着该pass不会输出任何颜色，
+		}
 		Pass
 		{
 			Tags{ "LightMode" = "ForwardBase" }//定义该pass在unity的光照流水线中的角色
-			ZWrite Off //透明度混合需要关闭深度写入功能
+			ZWrite Off //透明度混合需要关闭深度写入功能 
 			Blend SrcAlpha OneMinusSrcAlpha //设置混合状态
 
 			CGPROGRAM
@@ -74,5 +72,8 @@ Shader "ShaderLearn/AlpahBlendShadeer"
 		}
 	}
 
-	Fallback "Transparent/VertexLit"  //当上述的subShader不满足当前显卡时，使用这个内置的shader
+		Fallback "Transparent/VertexLit"  //当上述的subShader不满足当前显卡时，使用这个内置的shader
 }
+
+
+
