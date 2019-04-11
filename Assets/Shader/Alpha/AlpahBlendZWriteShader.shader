@@ -19,8 +19,8 @@
 		Pass
 		{
 			Tags{ "LightMode" = "ForwardBase" }//定义该pass在unity的光照流水线中的角色
-			ZWrite Off //透明度混合需要关闭深度写入功能 
-			Blend SrcAlpha OneMinusSrcAlpha //设置混合状态
+			ZWrite Off //透明度混合需要关闭深度写入功能
+			Blend SrcAlpha OneMinusSrcAlpha //设置混合状态 使用同样的混合因子来混合RGB通道和A通道，混合等式使用的操作都是加操作。BlendOp BlendOperation命令
 
 			CGPROGRAM
 			#pragma vertex vert
