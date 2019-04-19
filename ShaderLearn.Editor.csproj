@@ -139,10 +139,12 @@
     <None Include="Assets\Shader\ForwardRender\Chapter9\Chapter9-ForwardRendering.shader" />
     <None Include="Assets\Shader\ForwardRender\ForwardRenderingShader.shader" />
     <None Include="Assets\Shader\ForwardRender\ReceiveShadowShader.shader" />
-    <None Include="Assets\Shader\Reflection\Chapter10-Reflection.shader" />
-    <None Include="Assets\Shader\Reflection\FresnelShader.shader" />
-    <None Include="Assets\Shader\Reflection\ReflectionShader.shader" />
-    <None Include="Assets\Shader\Reflection\RefractionShader.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\Cubemap\Chapter10-Reflection.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\Cubemap\FresnelShader.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\Cubemap\ReflectionShader.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\Cubemap\RefractionShader.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\RenderTexture\GlassRefractionShader.shader" />
+    <None Include="Assets\Shader\HightLevelTexture\RenderTexture\MirrorShader.shader" />
     <None Include="Assets\Shader\SpecularShader\BlinnPhongShader.shader" />
     <None Include="Assets\Shader\SpecularShader\BlinnPhongUseBuildInFunctionShader.shader" />
     <None Include="Assets\Shader\SpecularShader\SpecularPixelLevelShader.shader" />
@@ -152,6 +154,9 @@
     <None Include="Assets\Shader\TextureShader\NormalMapWorldSpaceShader.shader" />
     <None Include="Assets\Shader\TextureShader\RampTextureShader.shader" />
     <None Include="Assets\Shader\TextureShader\SingleTextureShader.shader" />
+    <None Include="Assets\Shaders\Chapter10\Chapter10-GlassRefraction.shader" />
+    <None Include="Assets\Shaders\Common\BumpedDiffuse.shader" />
+    <None Include="Assets\Shaders\Common\BumpedSpecular.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
